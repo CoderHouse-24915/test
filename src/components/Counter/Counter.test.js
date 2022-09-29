@@ -5,6 +5,14 @@ import "@testing-library/jest-dom";
 import Counter from "./Counter";
 
 describe("Counter", () => {
+  beforeEach(() => {
+    console.log("beforeEach");
+  });
+
+  afterEach(() => {
+    console.log("afterEach");
+  });
+
   it("counter displays initial value", () => {
     const { getByTestId } = render(<Counter initialCount={0} />);
     const countValue = Number(getByTestId("count").textContent);
