@@ -67,4 +67,18 @@ describe("Counter", () => {
     const countValue = Number(getByTestId("count").textContent);
     expect(countValue).toEqual(0);
   });
+
+  it("should trigger alert function when btn is clicked", () => {
+    const mockHandler = jest.fn();
+
+    const { getByTestId, getByRole } = render(
+      <Counter initialCount={20} foo={mockHandler} />
+    );
+    const alertBtn = getByRole("button", { name: "Alert" });
+    expect(Number(getByTestId("count").textContent)).toEqual(20);
+
+    fireEvent.click(alertBtn);
+
+    expect(mockHandler).toHaveBeenCalledTimes(1);
+  });
 });

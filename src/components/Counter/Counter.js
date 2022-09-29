@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Counter = ({ initialCount }) => {
+const Counter = ({ initialCount, foo }) => {
   const [counter, setCounter] = useState(initialCount);
 
   const handleIncrement = () => {
@@ -23,6 +23,7 @@ const Counter = ({ initialCount }) => {
       <button onClick={handleIncrement}>+</button>
       <button onClick={handleDecrement}>-</button>
       <button onClick={handleRestart}>Restart</button>
+      <button onClick={foo}>Alert</button>
     </div>
   );
 };
